@@ -1,0 +1,20 @@
+<div class="form-wrapper">
+  <div class="form-group">
+    <input
+      type="text"
+      [(ngModel)]="categoriaPesquisada"
+      (input)="filtrarCategorias()"
+      placeholder="Digite uma categoria"
+      class="input-categoria"
+    />
+
+    <ul *ngIf="categoriasFiltradas.length > 0" class="sugestoes">
+      <li
+        *ngFor="let cat of categoriasFiltradas"
+        (click)="selecionarCategoria(cat.nome!)"
+      >
+        {{ cat.nome }}
+      </li>
+    </ul>
+  </div>
+</div>

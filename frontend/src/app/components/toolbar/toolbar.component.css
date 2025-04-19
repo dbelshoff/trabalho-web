@@ -1,0 +1,69 @@
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:rgb(58, 189, 212)
+}
+
+button {
+  color: white;
+}
+
+
+.btn-custom {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-custom:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.btn-custom:active {
+  transform: translateY(0);
+}
+
+.btn-custom::before {
+
+  margin-right: 0.3rem;
+}
+
+p{
+  font-size: 12px;
+}
+
+.logado{
+  display: flex;
+  gap: 10px;
+}
+
+.logado button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.2rem 1rem; /* Diminui a altura ajustando o padding */
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem; /* Você pode ajustar o tamanho da fonte se necessário */
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}

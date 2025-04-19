@@ -1,0 +1,38 @@
+<div class="login-container">
+  <h2>Login de Cliente</h2>
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        [(ngModel)]="loginData.email"
+        name="email"
+        required
+        email
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput
+        type="password"
+        [(ngModel)]="loginData.senha"
+        name="senha"
+        required
+      />
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Entrar
+    </button>
+  </form>
+
+  <p class="mensagem" *ngIf="mensagem">{{ mensagem }}</p>
+</div>

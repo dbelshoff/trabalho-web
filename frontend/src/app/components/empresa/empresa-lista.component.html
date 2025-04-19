@@ -1,0 +1,48 @@
+<div class="categoria">
+  <div class="categoria-input-wrapper">
+    <app-categoria
+      (categoriaSelecionada)="carregarEmpresasPorCategoria($event)"
+    ></app-categoria>
+  </div>
+  <button class="btn-custom" (click)="limparCategoria()">Limpar</button>
+</div>
+
+<ng-container *ngIf="selectLocalizacao; else semLocalizacao">
+  <div class="label">
+    <h2 *ngIf="!nenhumaEmpresaEncontrada; else nenhumaEncontrada">
+      Exibindo empresas
+      {{ categoriaSelecionada ? "de " + categoriaSelecionada : "" }}
+      em
+      {{
+        (bairro ? bairro + ", " : "") + (cidade ? cidade + "/" : "") + estado
+      }}
+    </h2>
+    <ng-template #nenhumaEncontrada>
+      <h2>
+        Nenhuma empresa
+        {{ categoriaSelecionada ? "de " + categoriaSelecionada : "" }}
+        encontrada em
+        {{
+          (bairro ? bairro + ", " : "") + (cidade ? cidade + "/" : "") + estado
+        }}.
+      </h2>
+    </ng-template>
+  </div>
+
+  <div class="lista-empresas">
+    <app-empresa-card
+      *ngFor="let empresa of empresas"
+      [empresa]="empresa"
+    ></app-empresa-card>
+  </div>
+</ng-container>
+
+<ng-container>
+  <ng-template #semLocalizacao>
+    <div>
+      <div class="label">
+        <h2>Informe uma localização para listar as empresas próximas.</h2>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

@@ -1,0 +1,113 @@
+.empresa-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 350px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.empresa-card:hover {
+  transform: translateY(-5px);
+}
+
+.empresa-card h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+/* Estilo da seção de contatos */
+.empresa-card .contato {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+
+}
+
+.empresa-card .contato p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin: 0.5rem 0;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+/* Ícones nos contatos */
+.empresa-card .contato p::before {
+  margin-right: 0.5rem;
+}
+
+.empresa-card p {
+  margin: 8px 0;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.empresa-card a {
+  color: #1e88e5;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.empresa-card a:hover {
+  text-decoration: underline;
+}
+
+.empresa-card .btn-custom {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.empresa-card .btn-custom:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.empresa-card .btn-custom:active {
+  transform: translateY(0);
+}
+
+.empresa-card .btn-custom::before {
+  content: '📍';
+  margin-right: 0.3rem;
+}
+
+.botoes {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.nomeEmpresa {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nomeEmpresa h4 {
+  font-size: 8px;
+  color: #898989;
+}
+
+

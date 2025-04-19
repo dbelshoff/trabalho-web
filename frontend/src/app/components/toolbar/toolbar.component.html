@@ -1,0 +1,48 @@
+<!--<mat-toolbar>
+  <button
+    (click)="toHome()"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+  <span>ProjetoX</span>
+  <span class="example-spacer">
+    <button (click)="irParaCadastro()" class="btn-custom">Cadastre-se</button>
+    <button class="btn-custom">Entrar</button>
+  </span>
+</mat-toolbar>-->
+
+<mat-toolbar color="primary">
+  <!-- Botão Home -->
+  <button
+    (click)="toHome()"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Botão para página inicial"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <!-- Título -->
+  <span>ProjetoX</span>
+  <span class="spacer"></span>
+  <!-- Espaçador para alinhar à direita -->
+
+  <!-- Condicional: Logado vs Não Logado -->
+  <div *ngIf="authService.isLoggedIn(); else cadastroLinks">
+    <div class="logado">
+      <p>Olá, {{ authService.getNomeCliente() }}</p>
+      <button (click)="sair()" mat-button class="btn-sair">Sair</button>
+    </div>
+  </div>
+  <ng-template #cadastroLinks>
+    <button (click)="irParaCadastro()" mat-button class="btn-custom">
+      Cadastre-se
+    </button>
+    <button (click)="irParaLogin()" mat-button class="btn-custom">
+      Entrar
+    </button>
+  </ng-template>
+</mat-toolbar>

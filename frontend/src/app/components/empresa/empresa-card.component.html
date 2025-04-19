@@ -1,0 +1,29 @@
+<div class="empresa-card">
+  <div class="nomeEmpresa">
+    <h3>{{ empresa.nome }}</h3>
+    <h4>{{ empresa.requerido ? "" : "Não requerido" }}</h4>
+  </div>
+  <div class="contato" *ngIf="mostrarContato">
+    <p><strong>Telefone: </strong> {{ empresa.telefone }}</p>
+    <p>
+      <strong>Instagram: </strong>
+      {{ empresa.instagram }}
+    </p>
+  </div>
+
+  <div *ngFor="let endereco of enderecos">
+    <p>
+      Endereço: {{ endereco.logradouro }}, {{ endereco.numero }} -
+      {{ endereco.bairro }}
+    </p>
+    <p>{{ endereco.cidade }} / {{ endereco.estado }}</p>
+    <div class="botoes">
+      <button class="btn-custom" (click)="openMaps(endereco)">
+        Como Chegar
+      </button>
+      <button class="btn-custom" (click)="toggleContato()">
+        {{ mostrarContato ? "Esconder" : "Ver Contato" }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+.lista-empresas {
+  padding: 20px;
+}
+
+.no-results {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 20px;
+}
+
+.empresas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.label{
+  display: flex;
+  justify-content: center;
+
+}
+
+h2{
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+}
+
+/*.categoria{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.categoria .btn-custom {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.categoria .btn-custom:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.categoria .btn-custom:active {
+  transform: translateY(0);
+}
+
+.categoria .btn-custom::before {
+
+  margin-right: 0.3rem;
+}*/
+
+.categoria {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 20px;
+}
+
+.categoria-input-wrapper {
+  flex: 1; /* Faz o input ocupar o máximo de espaço possível */
+}
+
+.categoria .btn-custom {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.9rem; /* controle horizontal apenas */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+
+.categoria .btn-custom:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.categoria .btn-custom:active {
+  transform: translateY(0);
+}
+
