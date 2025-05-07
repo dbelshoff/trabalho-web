@@ -45,7 +45,7 @@ export class CadastroClienteComponent {
     private router: Router
   ) {}
 
-  cadastrar(form: NgForm) {
+  /*cadastrar(form: NgForm) {
     this.clienteService.cadastrar(this.cliente).subscribe({
       next: () => {
         this.mensagem = 'Cliente cadastrado com sucesso!';
@@ -82,6 +82,55 @@ export class CadastroClienteComponent {
       error: (err) => {
         console.error('Erro ao cadastrar:', err);
         this.mensagem = 'Erro ao cadastrar cliente.';
+        this.cdr.markForCheck();
+      },
+    });
+  }*/
+
+  cadastrar(form: NgForm) {
+    this.clienteService.cadastrar(this.cliente).subscribe({
+      next: () => {
+        this.mensagem = 'Cliente cadastrado com sucesso!';
+        this.cdr.markForCheck();
+
+        // Faz login automaticamente após o cadastro
+        this.authService
+          .loginCliente({
+            email: this.cliente.email,
+            senha: this.cliente.senhaHash,
+          })
+          .subscribe({
+            next: () => {
+              setTimeout(() => {
+                this.mensagem = '';
+                this.cliente = {
+                  nome: '',
+                  email: '',
+                  senhaHash: '',
+                  telefone: '',
+                };
+                form.resetForm();
+                this.cdr.markForCheck();
+                this.router.navigate(['/home']);
+              }, 2000);
+            },
+            error: (err) => {
+              this.mensagem = 'Erro ao fazer login após cadastro.';
+              console.error('Erro no login:', err);
+              this.cdr.markForCheck();
+            },
+          });
+      },
+      error: (err) => {
+        console.error('Erro ao cadastrar:', err);
+
+        // Verifica se veio uma mensagem específica do backend
+        if (err.error && err.error.mensagem) {
+          this.mensagem = err.error.mensagem;
+        } else {
+          this.mensagem = 'Erro ao cadastrar cliente.';
+        }
+
         this.cdr.markForCheck();
       },
     });

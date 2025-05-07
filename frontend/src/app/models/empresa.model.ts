@@ -1,3 +1,4 @@
+import { Categoria } from './categoria.model';
 import { Endereco } from './endereco.models';
 
 export interface Empresa {
@@ -9,4 +10,5 @@ export interface Empresa {
   requerido: boolean;
   nivel: string;
   endereco?: Endereco[];
+  categorias: Categoria[];
 }

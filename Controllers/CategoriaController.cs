@@ -11,7 +11,6 @@ using projetoX.DTOs;
 namespace projetoX.Controllers;
 
 [Route("api/categorias")]
-[Authorize]
 [ApiController]
 public class CategoriaController : ControllerBase
 {
@@ -25,7 +24,6 @@ public class CategoriaController : ControllerBase
    
 
     [HttpGet]
-    [AllowAnonymous]
     public IActionResult ListarCategorias()
     {
         var categorias = _context.Categorias
@@ -36,20 +34,5 @@ public class CategoriaController : ControllerBase
             }).ToList();
 
         return Ok(categorias);
-    }
-
-    [HttpGet("{id}")]
-    public IActionResult ObterCategoria(int id)
-    {
-        var categoria = _context.Categorias
-            .Where(c => c.Id == id)
-            .Select(c => new CategoriaDTO
-            {
-                Id = c.Id,
-                Nome = c.Nome
-            }).FirstOrDefault();
-
-        if (categoria == null) return NotFound();
-        return Ok(categoria);
     }
 }

@@ -83,7 +83,7 @@ h2{
   align-items: center;
   justify-content: center;
   padding: 0.6rem 0.9rem; /* controle horizontal apenas */
-  background-color: #007bff;
+  background-color: #007BFF;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -97,7 +97,7 @@ h2{
 
 
 .categoria .btn-custom:hover {
-  background-color: #0056b3;
+  background-color: #0051a9;
   transform: translateY(-1px);
 }
 

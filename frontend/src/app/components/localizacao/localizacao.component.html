@@ -20,6 +20,46 @@
       <ng-template #selecioneEstado> Localização nao informada </ng-template>
     </span>
 
+    <div *ngIf="mostrandoFormulario" class="form-localizacao">
+      <div class="form-group">
+        <label for="estado">Estado:</label>
+        <select
+          id="estado"
+          [(ngModel)]="estadoSelecionado"
+          (change)="onEstadoChange()"
+        >
+          <option value="">Selecione um estado</option>
+          <option *ngFor="let estado of estados" [value]="estado">
+            {{ estado }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="cidades.length > 0">
+        <label for="cidade">Cidade:</label>
+        <select
+          id="cidade"
+          [(ngModel)]="cidadeSelecionada"
+          (change)="onCidadeChange()"
+        >
+          <option value="">Selecione uma cidade</option>
+          <option *ngFor="let cidade of cidades" [value]="cidade">
+            {{ cidade }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="bairros.length > 0">
+        <label for="bairro">Bairro:</label>
+        <select id="bairro" [(ngModel)]="bairroSelecionado">
+          <option value="">Selecione um bairro</option>
+          <option *ngFor="let bairro of bairros" [value]="bairro">
+            {{ bairro }}
+          </option>
+        </select>
+      </div>
+    </div>
+
     <button (click)="alterarLocalizacao()">
       {{ mostrandoFormulario ? "OK" : "Alterar" }}
     </button>
@@ -34,6 +74,47 @@
       </span>
       <br />
       <br />
+
+      <div *ngIf="mostrandoFormulario" class="form-localizacao">
+        <div class="form-group">
+          <label for="estado">Estado:</label>
+          <select
+            id="estado"
+            [(ngModel)]="estadoSelecionado"
+            (change)="onEstadoChange()"
+          >
+            <option value="">Selecione um estado</option>
+            <option *ngFor="let estado of estados" [value]="estado">
+              {{ estado }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group" *ngIf="cidades.length > 0">
+          <label for="cidade">Cidade:</label>
+          <select
+            id="cidade"
+            [(ngModel)]="cidadeSelecionada"
+            (change)="onCidadeChange()"
+          >
+            <option value="">Selecione uma cidade</option>
+            <option *ngFor="let cidade of cidades" [value]="cidade">
+              {{ cidade }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group" *ngIf="bairros.length > 0">
+          <label for="bairro">Bairro:</label>
+          <select id="bairro" [(ngModel)]="bairroSelecionado">
+            <option value="">Selecione um bairro</option>
+            <option *ngFor="let bairro of bairros" [value]="bairro">
+              {{ bairro }}
+            </option>
+          </select>
+        </div>
+      </div>
+
       <div class="buttons">
         <button (click)="pegarLocalizacao()">Usar Localização atual</button>
         <button (click)="alterarLocalizacao()">
@@ -44,7 +125,7 @@
   </div>
 </ng-template>
 
-<div *ngIf="mostrandoFormulario" class="form-localizacao">
+<!-- <div *ngIf="mostrandoFormulario" class="form-localizacao">
   <div class="form-group">
     <label for="estado">Estado:</label>
     <select
@@ -82,4 +163,4 @@
       </option>
     </select>
   </div>
-</div>
+</div> -->

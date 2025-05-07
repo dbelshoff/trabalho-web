@@ -23,20 +23,43 @@ public class ClienteController : ControllerBase
         _context = context;
     }
 
+
     [HttpPost]
-    public IActionResult CriarCliente([FromBody] Cliente cliente)
+[AllowAnonymous]
+public IActionResult CriarCliente([FromBody] Cliente cliente)
+{
+    // Verifica se já existe um cliente com o mesmo e-mail
+    bool emailJaExiste = _context.Clientes.Any(c => c.Email == cliente.Email);
+    if (emailJaExiste)
     {
-        cliente.SenhaHash = BCrypt.Net.BCrypt.HashPassword(cliente.SenhaHash);
-        _context.Clientes.Add(cliente);
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(ObterCliente), new { id = cliente.Id }, cliente);
+        return BadRequest(new { mensagem = "O e-mail informado já está cadastrado." });
     }
+
+    // Criptografa a senha e salva o cliente
+    cliente.SenhaHash = BCrypt.Net.BCrypt.HashPassword(cliente.SenhaHash);
+    _context.Clientes.Add(cliente);
+    _context.SaveChanges();
+
+    return CreatedAtAction(nameof(ObterCliente), new { id = cliente.Id }, cliente);
+}
+
+
 
     [HttpGet("{id}")]
     public IActionResult ObterCliente(int id)
     {
-        var cliente = _context.Clientes.Find(id);
-        if (cliente == null) return NotFound();
-        return Ok(cliente);
+    var cliente = _context.Clientes.Find(id);
+    if (cliente == null) return NotFound();
+
+    var clienteDto = new ClienteDTO
+    {
+        Id = cliente.Id,
+        Nome = cliente.Nome,
+        Email = cliente.Email,
+        Telefone = cliente.Telefone
+    };
+
+    return Ok(clienteDto);
     }
+
 }
