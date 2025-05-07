@@ -3,6 +3,8 @@ import { Empresa } from '../../models/empresa.model';
 import { CommonModule } from '@angular/common';
 import { EnderecoService } from '../../services/endereco.service';
 import { Endereco } from '../../models/endereco.models';
+import { CategoriaService } from '../../services/categoria.service';
+import { Categoria } from '../../models/categoria.model';
 //import { EncodeURIComponentPipe } from '../../pipes/encode-uri-component.pipe.ts.service';
 
 @Component({
@@ -15,6 +17,7 @@ import { Endereco } from '../../models/endereco.models';
 export class EmpresaCardComponent implements OnInit {
   @Input() empresa!: Empresa; // A propriedade que receberá os dados da empresa
   enderecos: Endereco[] = [];
+  //categorias: Categoria[] = [];
   mostrarContato: boolean = false;
   //empresa: any;
   //enderecos: any[];
@@ -23,6 +26,7 @@ export class EmpresaCardComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarEndereço();
+    //this.buscarCategorias();
   }
 
   buscarEndereço() {
@@ -32,6 +36,8 @@ export class EmpresaCardComponent implements OnInit {
         this.enderecos = res;
       });
   }
+
+
 
   getMapsUrl(endereco: any): string {
     const query = `${endereco.logradouro}, ${endereco.numero}, ${endereco.bairro}, ${endereco.cidade}, ${endereco.estado}`;

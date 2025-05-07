@@ -1,0 +1,50 @@
+footer {
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(220, 220, 220);
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  z-index: 1000;
+
+}
+
+.copy {
+  font-size: 8px;
+}
+
+.contato {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.whatsapp-link {
+  text-decoration: none;
+}
+
+.whatsapp-btn {
+  background-color: #25d366; /* Cor do WhatsApp */
+  color: white;
+  font-size: 14px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #128c7e; /* Cor do WhatsApp no hover */
+}
+
+.whatsapp-btn:active {
+  transform: translateY(2px); /* Efeito de clique */
+}
+
+
+

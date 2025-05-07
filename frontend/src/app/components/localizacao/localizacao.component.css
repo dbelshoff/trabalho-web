@@ -18,6 +18,7 @@
 
 .localizacao-info {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1rem;
   padding: 1rem;
@@ -44,7 +45,7 @@
 }
 
 .localizacao-info button {
-  background-color: #2e7d32;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -54,11 +55,11 @@
 }
 
 .localizacao-info button:hover {
-  background-color: #1b5e20;
+  background-color: #0051a9;
 }
 
 .localizacao-info-not button {
-  background-color: #2e7d32;
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -68,22 +69,40 @@
 }
 
 .localizacao-info-not button:hover {
-  background-color: #1b5e20;
+  background-color: #0051a9;
 }
 
-.form-localizacao {
-  max-width: 500px;
-  margin: 30px auto;
-  padding: 20px;
+/*.form-localizacao {
+  margin-bottom: 10px;
   border-radius: 12px;
-  background-color: #f9f9f9;
+  background-color: #e6ffe6;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}*/
+
+.form-localizacao {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
 }
 
-.form-localizacao .form-group {
+
+.form-group {
   margin-bottom: 10px;
+  width: 100%; /* Garante que o container do input ocupe toda a largura */
 }
+
+.form-localizacao select {
+  width: 100%; /* Já está certo aqui */
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box; /* Garante que padding e border não ultrapassem a largura */
+}
+
 
 .form-localizacao label {
   display: block;
@@ -92,17 +111,24 @@
   color: #333;
 }
 
-.form-localizacao select {
+
+
+
+
+
+
+
+/*.form-localizacao select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 15px;
   transition: border-color 0.3s ease;
-}
+}*/
 
 .form-localizacao select:focus {
-  border-color: #3f51b5;
+  border-color: #007BFF;
   outline: none;
   box-shadow: 0 0 4px rgba(63, 81, 181, 0.4);
 }
@@ -110,4 +136,9 @@
 .buttons{
   display: flex;
   justify-content: space-around;
+}
+
+.form-localizacao button {
+  margin-top: 10px;
+  align-self: center; /* ou 'flex-end' se quiser ele mais à direita */
 }

@@ -1,69 +1,69 @@
 mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color:rgb(58, 189, 212)
+  background-color: #0051a9;
+  padding: 0 1rem;
+}
+
+.spacer {
+  flex: 1;
 }
 
 button {
   color: white;
 }
 
-
-.btn-custom {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem;
-
-  font-weight: 500;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.btn-custom:hover {
-  background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-.btn-custom:active {
-  transform: translateY(0);
-}
-
-.btn-custom::before {
-
-  margin-right: 0.3rem;
-}
-
-p{
-  font-size: 12px;
-}
-
-.logado{
+.logado {
   display: flex;
   gap: 10px;
 }
 
-.logado button {
-  background-color: #007bff;
-  color: #fff;
+.logado p {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+}
+
+.link-text {
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.link-text:hover {
+  color: #ffd700; /* Cor de hover, você pode personalizar */
+}
+
+.link-text:active {
+  color: #ff6347; /* Cor ao clicar, você pode personalizar */
+}
+
+.btn-sair {
+  background-color: #ff4d4d;
+  color: white;
   border: none;
   border-radius: 4px;
-  padding: 0.2rem 1rem; /* Diminui a altura ajustando o padding */
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem; /* Você pode ajustar o tamanho da fonte se necessário */
-  font-weight: 500;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-decoration: none;
-  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn-sair:hover {
+  background-color: #ff0000;
+}
+
+.btn-sair:active {
+  background-color: #cc0000;
 }

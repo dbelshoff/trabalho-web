@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { CadastroClienteComponent } from './components/cadastro-cliente/cadastro-cliente.component';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home-component/home-component.component';
 import { LoginComponent } from './auth/login/login.component';
 

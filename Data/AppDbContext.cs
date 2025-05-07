@@ -13,7 +13,7 @@ namespace projetoX.Data
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Lead> Leads { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; } // Nova entidade
+        public DbSet<Usuario> Usuarios { get; set; }
 public DbSet<RefreshToken> RefreshTokens { get; set; }
 
 
@@ -25,14 +25,14 @@ public DbSet<RefreshToken> RefreshTokens { get; set; }
                 .WithMany(emp => emp.Enderecos)
                 .HasForeignKey(e => e.EmpresaId);
 
-            // Seed do administrador
+            
             modelBuilder.Entity<Usuario>().HasData(
                 new Usuario
                 {
                     Id = 1,
                     Nome = "Administrador",
                     Email = "admin@projetox.com",
-                    SenhaHash = BCrypt.Net.BCrypt.HashPassword("admin123"), // Senha padrão criptografada
+                    SenhaHash = BCrypt.Net.BCrypt.HashPassword("admin123"),
                     IsAdmin = true
                 }
             );

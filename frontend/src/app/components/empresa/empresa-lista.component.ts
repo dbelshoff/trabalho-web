@@ -117,7 +117,7 @@ export class EmpresaListaComponent implements OnInit {
           this.nenhumaEmpresaEncontrada = empresas.length === 0;
         },
         error: () => {
-          console.error('Erro ao carregar empresas, deu ruim');
+          console.error('Erro ao carregar empresas');
         },
       });
     }

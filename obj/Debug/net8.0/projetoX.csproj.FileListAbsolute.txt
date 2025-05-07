@@ -147,3 +147,12 @@ C:\Users\Belshoff\PROJECTS\PROJETOX\bin\Debug\net8.0\frontend\tsconfig.app.json
 C:\Users\Belshoff\PROJECTS\PROJETOX\bin\Debug\net8.0\frontend\tsconfig.json
 C:\Users\Belshoff\PROJECTS\PROJETOX\bin\Debug\net8.0\frontend\tsconfig.spec.json
 C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\frontend\proxy.conf.json
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Belshoff\projects\projetox\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll

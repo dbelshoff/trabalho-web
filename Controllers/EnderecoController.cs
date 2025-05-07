@@ -12,7 +12,6 @@ using System.Globalization;
 namespace projetoX.Controllers;
 
 [Route("api/enderecos")]
-//[Authorize]
 [ApiController]
 public class EnderecoController : ControllerBase
 {
@@ -48,6 +47,12 @@ public class EnderecoController : ControllerBase
 
         return Ok(dto);
     }
+
+
+
+
+
+
 
 
 
@@ -219,3 +224,4 @@ public IActionResult ListarEstados()
 
 
 }
+
