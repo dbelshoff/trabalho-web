@@ -115,11 +115,11 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // Configuração do pipeline
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-//}
+}
 
 // Ativa o CORS antes dos middlewares de autenticação e autorização
 app.UseCors("AllowSpecificOrigins");
