@@ -3,12 +3,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Localizacao } from '../models/localizacao.model';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalizacaoService {
-  private apiUrl = '/api/enderecos';
+  private apiUrl = `${environment.apiUrl}/enderecos`;
 
   estado: string = '';
   cidade: string = '';
