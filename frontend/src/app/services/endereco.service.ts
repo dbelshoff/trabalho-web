@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 //import { Empresa } from '../models/empresa.model'; // Ajuste o caminho conforme necessário
-import { environment } from '../../environments/environments';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',

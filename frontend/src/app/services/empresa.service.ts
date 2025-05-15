@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Empresa } from '../models/empresa.model'; // Ajuste o caminho conforme necessário
 import { FiltroEmpresa } from '../models/filtro-empresa.model';
-import { environment } from '../../environments/environments';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',

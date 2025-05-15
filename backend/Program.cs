@@ -16,19 +16,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpClient();
 
 
-// Configurar CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", policy =>
-    {
-        policy.WithOrigins("https://projetox-frontend-production.up.railway.app")
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
-});
+
 
 // Adiciona a política de CORS
-/*
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigins", policy =>
@@ -39,7 +30,7 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader()
               .AllowCredentials();
     });
-});*/
+});
 
 // Obtém a string de conexão da variável de ambiente ou do appsettings.json
 var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING")
@@ -177,7 +168,7 @@ var app = builder.Build();
 //}
 
 // Ativa o CORS antes dos middlewares de autenticação e autorização
-app.UseCors("AllowFrontend");
+app.UseCors("AllowSpecificOrigins");
 
 // Habilita HTTPS em produção
 if (!app.Environment.IsDevelopment())

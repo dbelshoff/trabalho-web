@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Localizacao } from '../models/localizacao.model';
 import { BehaviorSubject } from 'rxjs';
-import { environment } from '../../environments/environments';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +29,7 @@ export class LocalizacaoService {
 
   getLocation(latitude: number, longitude: number): Observable<Localizacao> {
     return this.http.get<Localizacao>(
-      `/api/enderecos/geolocalizacao?lat=${latitude}&lon=${longitude}`
+      `${this.apiUrl}/geolocalizacao?lat=${latitude}&lon=${longitude}`
     );
   }
 
