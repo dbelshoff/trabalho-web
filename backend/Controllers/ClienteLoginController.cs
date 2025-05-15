@@ -130,7 +130,7 @@ public class ClienteLoginController : ControllerBase
         }
     }
 
-    private string GenerateJwtToken(Cliente cliente)
+   /* private string GenerateJwtToken(Cliente cliente)
     {
         var claims = new[]
         {
@@ -152,7 +152,41 @@ public class ClienteLoginController : ControllerBase
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }*/
+
+    private string GenerateJwtToken(Cliente cliente)
+{
+    var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? _configuration["Jwt:SecretKey"];
+    if (string.IsNullOrEmpty(secretKey) || secretKey.Contains("${JWT_SECRET_KEY}"))
+    {
+        _logger.LogError("JWT SecretKey não configurada corretamente.");
+        throw new InvalidOperationException("JWT SecretKey não configurada corretamente.");
     }
+
+    var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? _configuration["Jwt:Issuer"];
+    var audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? _configuration["Jwt:Audience"];
+
+    var claims = new[]
+    {
+        new Claim(ClaimTypes.NameIdentifier, cliente.Id.ToString()),
+        new Claim(ClaimTypes.Name, cliente.Nome),
+        new Claim(ClaimTypes.Email, cliente.Email),
+        new Claim(ClaimTypes.Role, "Cliente")
+    };
+
+    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+    var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+    var token = new JwtSecurityToken(
+        issuer: issuer,
+        audience: audience,
+        claims: claims,
+        expires: DateTime.UtcNow.AddMinutes(15),
+        signingCredentials: creds
+    );
+
+    return new JwtSecurityTokenHandler().WriteToken(token);
+}
 
     private RefreshToken GenerateRefreshToken(string email)
     {

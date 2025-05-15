@@ -54,7 +54,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 
     // Configuração de autenticação JWT
-var key = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
+/*var key = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
     ?? builder.Configuration["Jwt:SecretKey"]
     ?? throw new InvalidOperationException("JWT SecretKey não configurada."));
 
@@ -71,6 +71,49 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? builder.Configuration["Jwt:Issuer"],
             ValidAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(key)
+        };
+    });*/
+
+
+
+    // Configuração de autenticação JWT
+var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY")
+    ?? builder.Configuration["Jwt:SecretKey"];
+
+if (string.IsNullOrEmpty(secretKey) || secretKey.Contains("${JWT_SECRET_KEY}"))
+{
+    throw new InvalidOperationException("JWT SecretKey não configurada corretamente. Verifique as variáveis de ambiente.");
+}
+
+var key = Encoding.ASCII.GetBytes(secretKey);
+
+var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? builder.Configuration["Jwt:Issuer"];
+var audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.Configuration["Jwt:Audience"];
+
+if (string.IsNullOrEmpty(issuer) || issuer.Contains("${JWT_ISSUER}"))
+{
+    throw new InvalidOperationException("JWT Issuer não configurado corretamente. Verifique as variáveis de ambiente.");
+}
+
+if (string.IsNullOrEmpty(audience) || audience.Contains("${JWT_AUDIENCE}"))
+{
+    throw new InvalidOperationException("JWT Audience não configurado corretamente. Verifique as variáveis de ambiente.");
+}
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = !builder.Environment.IsDevelopment();
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = issuer,
+            ValidAudience = audience,
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
     });
